@@ -1,0 +1,181 @@
+<div class="slide-layout-title">
+	<h1>Source Control</h1>
+  <h2>Presented by <a href="http://twitter.com/#!/sandboxws">Ahmed El.Hussaini</a></h2>
+  <ul>
+    <li><a href="http://twitter.com/#!/sandboxws">http://twitter.com/#!/sandboxws</a></li>
+    <li><a href="http://github.com/sandboxws">http://github.com/sandboxws</a></li>
+    <li><a href="http://facebook.com/aelhussini2">http://facebook.com/aelhussini2</a></li>
+  </ul>
+</div>
+<hr>
+<div>
+	<h1>Why?</h1>
+  <ul>
+    <li>Complete history of your source code</li>
+    <li>Complete freedom to change code</li>
+    <li>Ability to track every single change made to the code base</li>
+    <li>Collaborate effectively with other developers</li>
+    <li>Continuous Integration</li>
+  </ul>
+</div>
+<hr>
+<div>
+  <h1>First things first</h1>
+  <ul>
+    <li>Repository</li>
+    <li>Command line tools</li>
+    <li>Branches, and Tags</li>
+</div>
+<hr>
+<div>
+  <h1>Centralized Systems</h1>
+  <div>
+    <ul style="float: left; margin-right: 10px">
+      <li>Single Point of Failure</li>
+      <li>Can not work offline</li>
+      <li>Politics</li>
+    </ul>
+    <img src="http://localhost/sc-using-git/slides/images/centralized-1.png">
+  </div>
+</div>
+<hr>
+<div>
+	<h1>Distributed Systems</h1>
+  <ul>
+    <li>Every working directory contains the entire history</li>
+    <li>Every checkout is really a full backup of all the data</li>
+    <li>Can do everything offline</li>
+    <li>Sharing with multiple repositories</li>
+  </ul>
+    <img src="http://localhost/sc-using-git/slides/images/distributed-fully-replicate.jpg">
+</div>
+<hr>
+<div>
+  <h1>Git brief history</h1>
+  <h2>actually this is very brief ;)</h2>
+  <ul>
+    <li>Was initially designed and developed by <span class="pink">Linus Torvalds</span> for Linux kernel development</li>
+    <li>Torvalds wanted a distributed system that he could use like <span class="pink">BitKeeper</span></li>
+    <li>Very strong safeguards against <span class="pink">corruption</span>, either accidental or malicious</li>
+    <li>Very high <span class="pink">performance</span></li>
+</div>
+<hr>
+<div>
+  <h1>Installing Git</h1>
+  <h2>Please, for the love of God don't use GUI tools, use the command line instead</h2>
+  <ul>
+    <li>
+      <span>Ubuntu <span class="yellow">:D</span></span>
+      <pre>$ sudo apt-get install <span class="pink">git-core</span></pre>
+    </li>
+    <li>
+      <span>OS X Lion <span class="yellow">:)</span></span>
+      <pre>// preinstalled</pre>
+    </li>
+    <li>
+      <span>Windows <span class="yellow">:(</span></span>
+      <pre><a href="http://code.google.com/p/msysgit/">msysgit</a></pre>
+    </li>
+  </ul>
+</div>
+<hr>
+<div class="slide-layout-title">
+	<h1>Configurations</h1>
+  <pre>
+    $ git <span class="magenta">config</span> --global <span class="pink">user.name</span> "Ahmed El.Hussaini"
+    $ git <span class="magenta">config</span> --global <span class="pink">user.email</span> "aelhussaini@sandboxws.com"
+  </pre>
+</div>
+<hr>
+<div class="slide-layout-title">
+	<h1>Git Basics</h1>
+  <ul>
+    <li>Each Git repository contains a <span class="pink">.git</span> folder</li>
+    <li>To <span class="pink">clone</span> a repo means you clone it :)</li>
+    <li>To <span class="pink">commit</span> means to save some changes to <span class="strong yellow">your</span> repo</li>
+    <li>To <span class="pink">pull</span> means to update <span class="strong yellow">your repo</span> with changes from <span class="strong magenta">remote one</span></li>
+    <li>To <span class="pink">push</span> means to update a <span class="strong magenta">remote repo</span> with <span class="strong yellow">your</span> changes</li>
+  </ul>
+</div>
+<hr>
+<div>
+	<h1>Enough is enough</h1>
+	<h2>SHOW ME THE MONEY</h2>
+  <pre>
+    <span>$</span> mkdir awesome_project
+    <span>$</span> cd awesome_project
+    <span>$</span> git <span class="yellow">init</span> .
+    <span class="comment"># Initialized empty Git repository in /home/sandboxws/awesome_project/.git</span>
+    <span>$</span> touch hello_world.rb
+    <span>$</span> git <span class="yellow">add</span> hello_world.rb
+    <span>$</span> git <span class="yellow">commit -m</span> "added a blank file, so sue me"
+    $ git <span class="yellow">log</span>
+  </pre>
+</div>
+<hr>
+<div>
+	<h1>Git Branches</h1>
+	<h2>This is what make Git awesome if you ask me</h2>
+  <pre>
+    <span>$</span> git branch
+    * <span style="background-color: #B38B42; padding: 2px">master</span>
+    <span>$</span> git branch test
+    <span>$</span> git checkout test
+    <span>$</span> git branch
+      master
+    * <span style="background-color: #B38B42; padding: 2px">test</span>
+  </pre>
+</div>
+<hr>
+<div>
+  <h1>Basic workflow</h1>
+  <pre>
+    $ cd awesome_project
+    $ git <span class="yellow">checkout</span> -b mybranch
+    $ gvim hello_world.rb
+    $ git <span class="yellow">status</span>
+    $ git <span class="yellow">add</span> hello_world.rb
+    $ git <span class="yellow">status</span>
+    $ git <span class="yellow">commit -m</span> "added the hello_world class file"
+    $ git <span class="yellow">checkout</span> master
+    $ ls
+    $ git <span class="yellow">merge</span> mybranch
+    $ ls
+  </pre>
+</div>
+<hr>
+<div>
+  <h1>What is Github?</h1>
+  <ul>
+    <li>Online source code hosting using Git</li>
+    <li>Source code browser</li>
+    <li>Inline editing</li>
+    <li>Wikis</li>
+    <li>Ticketing</li>
+    <li>Personal project homepage</li>
+  </ul>
+</div>
+<hr>
+<div>
+  <h1>Who is on Github?</h1>
+  <ul>
+    <li>More than 990K users and 2M project</li>
+    <li>Twitter, Facebbok, Yahoo, Digg, and You, hopefully after this session :)</li>
+  </ul>
+</div>
+<hr>
+<div>
+  <h1>Tools and Resources</h1>
+  <ul>
+    <li><a href="http://www.ubuntugeek.com/rabbitvcs-easy-version-control-for-linux.html">RabbitVCS Git (Ubuntu)</a></li>
+    <li><a href="http://www.git-tower.com/">Tower (OS X)</a></li>
+    <li><a href="http://code.google.com/p/tortoisegit/">Tortoisegit (Win)</a></li>
+    <li><a href="http://book.git-scm.com/">Git Community Book</a></li>
+    <li><a href="http://stackoverflow.com">Stackoverflow.com</a></li>
+  </ul>
+</div>
+<hr>
+<div>
+  <h1>Thank You</h1>
+  <h2>I mean lets move on to the Workshop</h2>
+</div>
